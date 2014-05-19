@@ -4,7 +4,7 @@ html5eyeball
 Html5 Canvas/JavaScript based semi-realistic eyeball
 
 ![Eyeball rendered with yellow iris](/screenshots/eyeball_yellow.jpg?raw=true "Eyeball example, yellow iris")
-![Eyeball rendered with green iris](/relative/eyeball_green.jpg?raw=true "Eyeball example, green iris")
+![Eyeball rendered with green iris](/screenshots/eyeball_green.jpg?raw=true "Eyeball example, green iris")
 
 Architected from the ground up to be fully configurable. From iris colour and eyeball size to vein complexity and rotation limits.
 
