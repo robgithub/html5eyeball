@@ -16,3 +16,6 @@ Sensibile defaults means nothing other than the div to render to is required.
 Framework agnositic. Although jQuery is used throughout the examples is not required and just makes wiring up mouse actions easy.
 
 I intend to write a number of blog posts on how this all came to be and once that is done I will distill the best bits into this README.md
+
+Examples
+![Live demo with image cut-outs](http://robgithub.github.io/html5eyeball/examples/cutout.html)
