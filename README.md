@@ -18,4 +18,4 @@ Framework agnositic. Although jQuery is used throughout the examples is not requ
 I intend to write a number of blog posts on how this all came to be and once that is done I will distill the best bits into this README.md
 
 Examples
-![Live demo with image cut-outs](http://robgithub.github.io/html5eyeball/examples/cutout.html)
+[Live demo with image cut-outs](http://robgithub.github.io/html5eyeball/examples/cutout.html)
