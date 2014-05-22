@@ -11,8 +11,11 @@
 		margin: 0px;
 		padding: 0px;
 		background-color:white;
+		margin-left:20px;
 	}
-	#eyeball-container { z-index:1; }
+	#demo-container { position:relative;}
+	.instructions { position:relative; top:551px;}
+	#eyeball-container { z-index:1; position:relative; }
 	#eyeball1 {width:60px; height:60px; top:168px; left:105px;position: absolute; }
 	#eyeball2 {width:60px; height:60px; top:164px; left:246px;position: absolute; }
 	#image-bg { z-index:-1; position: absolute;pointer-events:none; }
@@ -95,20 +98,30 @@ $(document).ready( function () {
 </head>
 <body>
   <body>
-    <div id="eyeball-container">
-        <div id="eyeball1"></div>
-        <div id="eyeball2"></div>
-    </div>
-	<img id="image-bg" src="images/cut-out 1 400x551_clean.jpg" />
-	<img id="image-mask" src="images/cut-out 1 400x551_eyemask_tight.png" />
-	<div id="nose-button"></div>
-	<div id="tongue-button"></div>
-some links and information
+<h1>Cut-out Demo</h1>
 <br />
-standard disclaimer
+More at the <a href="https://github.com/robgithub/html5eyeball">html5 eyeball repository</a> 
+	<div id="demo-container">
+		<div id="eyeball-container">
+		    <div id="eyeball1"></div>
+		    <div id="eyeball2"></div>
+		</div>
+		<img id="image-bg" src="images/cut-out 1 400x551_clean.jpg" />
+		<img id="image-mask" src="images/cut-out 1 400x551_eyemask_tight.png" />
+		<div id="nose-button"></div>
+		<div id="tongue-button"></div>
+	</div>
+	<div class="instructions">
+		<h2>Instructions</h2>
+		<p>Move the mouse and let the eyeballs track you.</p>
+		<p>Click an eye to change the iris colour randomly.</p>
+		<p>Click my nose to pop eyeballs in and out.</p>
+		<p>Click my tongue to toggle between bizzare mode eyeballs.</p>
+		<br/>
+		<p><a href="https://github.com/robgithub/html5eyeball">html5eyeball</a> Is free for any use and is under the <a href="http://opensource.org/licenses/MIT">MIT licence</a>.</p>
+	</div>
 </body>
   
 </body>
 </html>
-
 
