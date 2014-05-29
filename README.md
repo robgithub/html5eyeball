@@ -19,3 +19,4 @@ I intend to write a number of blog posts on how this all came to be and once tha
 
 Examples
 [Live demo with image cut-outs](http://robgithub.github.io/html5eyeball/examples/cutout.html)
+[Live demo with image cut-outs, eyeballs linked](http://robgithub.github.io/html5eyeball/examples/cutout_linked.html)
