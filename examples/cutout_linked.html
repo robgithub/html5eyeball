@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>html5eyeball - Cutout linked Demo</title>
+  <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script type='text/javascript' src='../html5eyeball.js'></script>
+  
+  <style type='text/css'>
+    body {
+		margin: 0px;
+		padding: 0px;
+		background-color:white;
+		margin-left:20px;
+	}
+	#demo-container { position:relative;}
+	.instructions { position:relative; top:551px;}
+	#eyeball-container { z-index:1; position:relative; }
+	#eyeball1 {width:60px; height:60px; top:168px; left:105px;position: absolute; }
+	#eyeball2 {width:60px; height:60px; top:164px; left:246px;position: absolute; }
+	#image-bg { z-index:-1; position: absolute;pointer-events:none; }
+	#image-mask { left:89px; top:146px; z-index:2; position: absolute; pointer-events:none; }
+	#nose-button { left:153px; top:207px; z-index:3; position: absolute; width:100px; height:90px; }
+	#tongue-button { left:145px; top:349px; z-index:3; position: absolute; width:100px; height:115px; }
+  </style>
+  
+
+
+<script type='text/javascript'>//<![CDATA[ 
+// AGHHH JQUERY !!!!
+$(document).ready( function () {
+    var eb1 = new Eyeball("eyeball1");
+    eb1.travel = 0.5;
+    eb1.init();
+    var eb2 = new Eyeball("eyeball2");
+    eb2.travel = 0.5;
+	eb2.highlight1.y = .40;
+    eb2.init();
+
+	// linking offsets
+	var linkOffsetX = 55;
+	var linkOffsetY = 4;
+
+    // trap mouse movements and cause updates
+    $(window).mousemove(function (event) {
+        eb1.doDraw(event.pageX - linkOffsetX, event.pageY);
+        eb2.doDraw(event.pageX + linkOffsetX, event.pageY + linkOffsetY);
+    });
+    $('#eyeball1').click(function (){
+        eb1.setPupil();
+    });
+    $('#eyeball2').click(function (){
+        eb2.setPupil();
+    });
+    $('#nose-button').click(function (){
+        $('#image-mask').toggle();
+    });
+	var tongueState=0;
+    $('#tongue-button').click(function (){
+		if (tongueState===0) {
+			tongueState=1;
+			eb1.eyeColour = {"red":255, "green":255, "blue":0};
+			eb1.irisOuterColour = {"red":255, "green":100, "blue":100, "alpha":0.0 };
+			eb1.irisInternalColour = {"red":255, "green":0, "blue":0};
+			eb1.eyeballGradient1 = {"red":0, "green":255, "blue":255};
+			eb1.eyeballGradient2 = {"red":0, "green":238, "blue":238};
+			eb1.eyeballGradient3 = {"red":0, "green":221, "blue":221};
+			eb1.veinColour = {"red":0, "green":180, "blue":180};
+			eb2.eyeColour = {"red":0, "green":0, "blue":0};
+			eb2.irisOuterColour = {"red":100, "green":255, "blue":100, "alpha":0.0 };
+			eb2.irisInternalColour = {"red":0, "green":255, "blue":0};
+			eb2.eyeballGradient1 = {"red":255, "green":0, "blue":255};
+			eb2.eyeballGradient2 = {"red":255, "green":0, "blue":238};
+			eb2.eyeballGradient3 = {"red":238, "green":0, "blue":221};
+			eb2.veinColour = {"red":255, "green":255, "blue":0};
+		} else {
+			tongueState=0;
+			eb1.eyeColour = {"red":0, "green":255, "blue":0};
+			eb1.irisOuterColour = {"red":100, "green":100, "blue":100, "alpha":0.0 };
+			eb1.irisInternalColour = {"red":0, "green":0, "blue":0};
+			eb1.eyeballGradient1 = {"red":255, "green":255, "blue":255};
+			eb1.eyeballGradient2 = {"red":255, "green":238, "blue":238};
+			eb1.eyeballGradient3 = {"red":238, "green":221, "blue":221};
+			eb1.veinColour = {"red":255, "green":180, "blue":180};
+			eb2.eyeColour = {"red":0, "green":255, "blue":0};
+			eb2.irisOuterColour = {"red":100, "green":100, "blue":100, "alpha":0.0 };
+			eb2.irisInternalColour = {"red":0, "green":0, "blue":0};
+			eb2.eyeballGradient1 = {"red":255, "green":255, "blue":255};
+			eb2.eyeballGradient2 = {"red":255, "green":238, "blue":238};
+			eb2.eyeballGradient3 = {"red":238, "green":221, "blue":221};
+			eb2.veinColour = {"red":255, "green":180, "blue":180};
+		}
+		eb1.init();
+		eb2.init();
+		eb1.doDraw(); // set eyeball front and center
+		eb2.doDraw();
+    });
+    eb1.doDraw(); // set eyeball front and center
+    eb2.doDraw();
+});
+//]]>  
+</script>
+</head>
+<body>
+<h1>Cut-out linked Demo</h1>
+<br />
+More at the <a href="https://github.com/robgithub/html5eyeball">html5 eyeball repository</a> 
+	<div id="demo-container">
+		<div id="eyeball-container">
+		    <div id="eyeball1"></div>
+		    <div id="eyeball2"></div>
+		</div>
+		<img id="image-bg" src="images/cut-out%201%20400x551_clean.jpg" alt="My face as a cut out mask for the eyeballs" >
+		<img id="image-mask" src="images/cut-out%201%20400x551_eyemask_tight.png" alt="eye slits making use of transparent png">
+		<div id="nose-button"></div>
+		<div id="tongue-button"></div>
+	</div>
+	<div class="instructions">
+		<h2>Instructions</h2>
+		<p>Move the mouse and let the eyeballs track you.</p>
+		<p>Click an eye to change the iris colour randomly.</p>
+		<p>Click my nose to pop eyeballs in and out.</p>
+		<p>Click my tongue to toggle between bizzare mode eyeballs.</p>
+		<br/>
+		<p><a href="https://github.com/robgithub/html5eyeball">html5eyeball</a> Is free for any use and is under the <a href="http://opensource.org/licenses/MIT">MIT licence</a>.</p>
+	</div>
+</body>
+  
+</html>
+
+
