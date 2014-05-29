@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>html5eyeball - Cutout Demo</title>
+  <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script type='text/javascript' src='../html5eyeball.js'></script>
+  
+  <style type='text/css'>
+    body {
+		margin: 0px;
+		padding: 0px;
+		background-color:white;
+		margin-left:20px;
+	}
+	#demo-container { position:relative;}
+	.instructions { clear:both; margin-top:12px;}
+	.more { margin-bottom:12px;}
+	#eyeball-row { clear:both; }
+	.eyeball {width:60px; height:60px;float:left }
+	.medium {width:80px; height:80px; }
+	.large {width:100px; height:100px; }
+	.mega {width:120px; height:120px; }
+  </style>
+  
+
+
+<script type='text/javascript'>//<![CDATA[ 
+// AGHHH JQUERY !!!!
+$(document).ready( function () {
+	var colourSelections = [
+			{"red":0,   "green":0,   "blue":0}, 
+			{"red":0,   "green":0,   "blue":255}, 
+			{"red":0,   "green":255, "blue":0}, 
+			{"red":0,   "green":255, "blue":255}, 
+			{"red":255, "green":0,   "blue":0}, 
+			{"red":255, "green":0,   "blue":255}, 
+			{"red":255, "green":255, "blue":0}, 
+			{"red":255, "green":255, "blue":255}, 
+			{"red":100,   "green":0,   "blue":0}, 
+			{"red":0,   "green":100,   "blue":255}, 
+			{"red":0,   "green":100, "blue":0}, 
+			{"red":0,   "green":255, "blue":100}
+	];
+	var eyeballs = [];
+	for (var i=0;i<12;i++) {
+		eyeballs.push(new Eyeball("eyeball"+(1+i)));
+		eyeballs[i].irisColours = colourSelections;
+		eyeballs[i].init();
+	}
+    // trap mouse movements and cause updates
+    $(window).mousemove(function (event) {
+		for (var i=0;i<eyeballs.length;i++) {
+	        eyeballs[i].doDraw(event.pageX, event.pageY);
+		}    
+	});
+
+	function generateClickHandler(index) {
+		return (function(event) {
+			eyeballs[index].setPupil();
+		});
+	}
+
+	for (var i=0;i<eyeballs.length;i++) {
+		$('#eyeball'+(1+i)).click(generateClickHandler(i));
+	}
+ 	// set eyeball front and center, and randomise the colours
+	for (var i=0;i<eyeballs.length;i++) {
+		eyeballs[i].doDraw();
+		eyeballs[i].setPupil();
+	}
+});
+//]]>  
+</script>
+</head>
+<body>
+<h1>Twelve eyeballs Demo</h1>
+<br />
+<p class="more">More at the <a href="https://github.com/robgithub/html5eyeball">html5 eyeball repository</a></p> 
+	<div id="demo-container">
+		<div id="eyeball-row">
+		    <div id="eyeball1" class="eyeball"></div>
+		    <div id="eyeball2" class="eyeball medium"></div>
+		    <div id="eyeball3" class="eyeball large"></div>
+		    <div id="eyeball4" class="eyeball mega"></div>
+		</div>
+		<div id="eyeball-row">
+		    <div id="eyeball5" class="eyeball mega"></div>
+		    <div id="eyeball6" class="eyeball"></div>
+		    <div id="eyeball7" class="eyeball medium"></div>
+		    <div id="eyeball8" class="eyeball large"></div>
+		</div>
+		<div id="eyeball-row">
+		    <div id="eyeball9"  class="eyeball large"></div>
+		    <div id="eyeball10" class="eyeball mega"></div>
+		    <div id="eyeball11" class="eyeball"></div>
+		    <div id="eyeball12" class="eyeball medium"></div>
+		</div>
+	</div>
+	<div class="instructions">
+		<h2>Instructions</h2>
+		<p>Move the mouse and let the eyeballs track you.</p>
+		<p>Click and eye to randomly change its colour.</p>
+		<br/>
+		<p><a href="https://github.com/robgithub/html5eyeball">html5eyeball</a> Is free for any use and is under the <a href="http://opensource.org/licenses/MIT">MIT licence</a>.</p>
+	</div>
+</body>
+  
+</html>
+
