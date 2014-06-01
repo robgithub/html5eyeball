@@ -24,3 +24,5 @@ Examples
 [Live demo with image cut-outs, eyeballs linked](http://robgithub.github.io/html5eyeball/examples/cutout_linked.html)
 
 [Live demo twelve independant eyeballs](http://robgithub.github.io/html5eyeball/examples/twelve_eyeballs.html)
+
+[Live demo alter eyeball settings and see changes](http://robgithub.github.io/html5eyeball/examples/select_your_eyeball.html)
