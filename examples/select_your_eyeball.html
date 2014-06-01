@@ -31,7 +31,7 @@
 $(document).ready( function () {
 	var eyeball;
 	// set the colour picker settings
-	$('input[type=color]').spectrum({
+	$('.colorpicker').spectrum({
 		showInitial: true,
 		preferredFormat: "rgb",
 		showAlpha : true,
@@ -189,23 +189,23 @@ hideRenderLayers <input id="settings-hideRenderLayers" checked="checked" type="c
 hideMarkers <input id="settings-hideMarkers" checked="checked" type="checkbox"><br />
 useCircleScaling <input id="settings-useCircleScaling"  checked="checked" type="checkbox"><br />
 numLinesIris <input id="settings-numLinesIris" class="size-pixels" value="400" type="text"><br />
-eyeColour <input type='color' id="settings-colour-eyeColour" value="rgb(0,255,0)"/><br />
-irisOuterColour <input type='color' id="settings-colour-irisOuterColour" value="rgba(100,100,100,0.0)"/><br />
-irisInternalColour <input type='color' id="settings-colour-irisInternalColour" value="rgb(0,0,0)"/><br />
-eyeballGradient1 <input type='color' id="settings-colour-eyeballGradient1" value="rgb(255,255,255)"/><br />
-eyeballGradient2 <input type='color' id="settings-colour-eyeballGradient2" value="rgb(255,238,238)"/><br />
-eyeballGradient3 <input type='color' id="settings-colour-eyeballGradient3" value="rgb(238,221,221)"/><br />
-veinColour <input type='color' id="settings-colour-veinColour" value="rgb(255,180,180)"/><br />
+eyeColour <input type="text" id="settings-colour-eyeColour" class="colorpicker" value="rgb(0,255,0)"/><br />
+irisOuterColour <input type="text" id="settings-colour-irisOuterColour" class="colorpicker" value="rgba(100,100,100,0.0)"/><br />
+irisInternalColour <input type="text" id="settings-colour-irisInternalColour" class="colorpicker" value="rgb(0,0,0)"/><br />
+eyeballGradient1 <input type="text" id="settings-colour-eyeballGradient1" class="colorpicker" value="rgb(255,255,255)"/><br />
+eyeballGradient2 <input type="text" id="settings-colour-eyeballGradient2" class="colorpicker" value="rgb(255,238,238)"/><br />
+eyeballGradient3 <input type="text" id="settings-colour-eyeballGradient3" class="colorpicker" value="rgb(238,221,221)"/><br />
+veinColour <input type="text" id="settings-colour-veinColour" class="colorpicker" value="rgb(255,180,180)"/><br />
 veinWidth <input id="settings-veinWidth" class="size-dec" value="0.8" type="text"><br />
 veinBranches <input id="settings-veinBranches" value="5" class="size-pixels" type="text"><br />
 pupilScale <input id="settings-pupilScale" type="range" min="0" max="2" value="1" id="fader" step=".01"><br />
 animatePupil <input id="settings-animatePupil" checked="checked" type="checkbox"><br />
-pupilColour <input type='color' id="settings-colour-pupilColour" value="rgb(0,0,0)"/><br />
-highlight1 color1 <input type='color' id="settings-h1-colour-colour1" value="rgba(200,200,200,0.4)"/><br />
-highlight1 color2 <input type='color' id="settings-h1-colour-colour2" value="rgba(0,0,0,0.0)"/><br /> 
+pupilColour <input type="text" id="settings-colour-pupilColour" class="colorpicker" value="rgb(0,0,0)"/><br />
+highlight1 colour1 <input type="text" id="settings-h1-colour-colour1" class="colorpicker" value="rgba(200,200,200,0.4)"/><br />
+highlight1 colour2 <input type="text" id="settings-h1-colour-colour2" class="colorpicker" value="rgba(0,0,0,0.0)"/><br /> 
 highlight1 x<input id="settings-h1-size-x" class="size-dec" value="0.35" type="text">, y<input id="settings-h1-size-y" class="size-dec" value="0.35" type="text">, w<input id="settings-h1-size-w" class="size-dec" value="0.2" type="text">, h<input id="settings-h1-size-h" class="size-dec" value="0.16" type="text"><br />
-highlight2 color1 <input type='color' id="settings-h2-colour-colour1" value="rgba(200,200,200,0.2)"/><br />
-highlight2 color2 <input type='color' id="settings-h2-colour-colour2" value="rgba(0,0,0,0.3)"/><br /> 
+highlight2 colour1 <input type="text" id="settings-h2-colour-colour1" class="colorpicker" value="rgba(200,200,200,0.2)"/><br />
+highlight2 colour2 <input type="text" id="settings-h2-colour-colour2" class="colorpicker" value="rgba(0,0,0,0.3)"/><br /> 
 highlight2 x<input id="settings-h2-size-x" class="size-dec" value="0.64" type="text">, y<input id="settings-h2-size-y" class="size-dec" value="0.74" type="text">, w<input id="settings-h2-size-w" class="size-dec" value="0.14" type="text">, h<input id="settings-h2-size-h" class="size-dec" value="0.12" type="text"><br />
 <input type="button" value="Reset" id="reset-btn">
 <input type="button" value="Render" id="render-btn">
