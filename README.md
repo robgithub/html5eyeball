@@ -1,4 +1,4 @@
-html5eyeball
+html5eyeball pages
 ============
 
 Html5 Canvas/JavaScript based semi-realistic eyeball
@@ -7,12 +7,14 @@ Html5 Canvas/JavaScript based semi-realistic eyeball
 
 ![Eyeball rendered with green iris](/screenshots/eyeball_green.jpg?raw=true "Eyeball example, green iris")
 
-Architected from the ground up to be fully configurable. From iris colour and eyeball size to vein complexity and rotation limits.
+This file is in the gh-pages branch to support the main branch live demos
 
-There are over twenty user settings allowing ultra-realistic renderings to bizzare and frightening halloween visions of horror.
+[Live demo with image cut-outs](http://robgithub.github.io/html5eyeball/examples/cutout.html)
 
-Sensibile defaults means nothing other than the div to render to is required.
+[Live demo with image cut-outs, eyeballs linked](http://robgithub.github.io/html5eyeball/examples/cutout_linked.html)
 
-Framework agnositic. Although jQuery is used throughout the examples is not required and just makes wiring up mouse actions easy.
+[Live demo twelve independant eyeballs](http://robgithub.github.io/html5eyeball/examples/twelve_eyeballs.html)
 
-I intend to write a number of blog posts on how this all came to be and once that is done I will distill the best bits into this README.md
+[Live demo alter eyeball settings and see changes](http://robgithub.github.io/html5eyeball/examples/select_your_eyeball.html)
+
+All important file should be the same, but referer to the main branch if in doubt.
