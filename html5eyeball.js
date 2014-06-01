@@ -72,10 +72,9 @@ function Eyeball(elementId) {
     var offsetLocationX = 0; 
     var offsetLocationY = 0;
 
-    // Sets the pupil colour
-    // can be supplied or pulled from the irisColours bank randomly
+    // Colour can be supplied or pulled from the irisColours bank randomly
     // If "animatePupil" setting is not disabled the pupil will also animate
-    eyeball.setPupil = function(colour) {
+    eyeball.setIris = function(colour) {
         if (colour) {
             this.eyeColour.red = (colour.red) ? colour.red : 0;
             this.eyeColour.green = (colour.green) ? colour.green : 0;
@@ -98,6 +97,12 @@ function Eyeball(elementId) {
                 eyeball.doDraw(lastMouseX, lastMouseY, eyeball.centerX, eyeball.centerY);
             }, (1000 / 30), eyeball);
         }
+		
+	}
+
+	// allow backward compatibilty
+    eyeball.setPupil = function(colour) {
+		this.setIris(colour);
     };
     
     // Toggle the visibility of layers
