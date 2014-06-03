@@ -15,8 +15,6 @@ Sensible defaults means nothing other than the div to render to is required.
 
 Framework agnostic. Although jQuery is used throughout the examples is not required and just makes wiring up mouse actions easy.
 
-I intend to write a number of blog posts on how this all came to be and once that is done I will distil the best bits into this README.md
-
 Examples
 
 [Live demo with image cut-outs](http://robgithub.github.io/html5eyeball/examples/cutout.html)
@@ -166,6 +164,6 @@ Defined as a JSON object with "red", "green" and "blue" with values from 0 to 25
 
 ```javascript
 {"red":0,   "green":255, "blue":255};
-{"red":100,   "green":100, "blue":100, "alpha":0.5}
+{"red":100, "green":100, "blue":100, "alpha":0.5}
 ```
 
