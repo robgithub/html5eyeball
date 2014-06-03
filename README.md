@@ -58,25 +58,25 @@ Distance the iris is allowed to travel within the eyeball.
 Number of random lines that are projected from the centre of the iris. 
 
 ### eyeColour
-Initial iris colour. [[[1]]](#colourJson "Colour JSON Definition")
+Initial iris colour. [[1]](#colour "Colour JSON Definition")
 
 ### irisOuterColour
-This is the colour that the iris lines fade to randomly, normally a highly transparent colour. [[[1]]](#colourJson "Colour JSON Definition")
+This is the colour that the iris lines fade to randomly, normally a highly transparent colour. [[1]](#colour "Colour JSON Definition")
 
 ### irisInternalColour
-Is the ambient iris colour where no **eyeColour** or **irisOuterColour** rendered pixels exist. Normally set to black. [[[1]]](#colourJson "Colour JSON Definition")
+Is the ambient iris colour where no **eyeColour** or **irisOuterColour** rendered pixels exist. Normally set to black. [[1]](#colour "Colour JSON Definition")
 
 ### eyeballGradient1
-The central part of the background eyeball's colour, often white, takes up 75%. [[[1]]](#colourJson "Colour JSON Definition")
+The central part of the background eyeball's colour, often white, takes up 75%. [[1]](#colour "Colour JSON Definition")
 
 ### eyeballGradient2
-The next 10% of the eyeball background gradient. [[[1]]](#colourJson "Colour JSON Definition")
+The next 10% of the eyeball background gradient. [[1]](#colour "Colour JSON Definition")
 
 ### eyeballGradient3
-The last 15% of the eyeball background gradient, the edge. [[[1]]](#colourJson "Colour JSON Definition")
+The last 15% of the eyeball background gradient, the edge. [[1]](#colour "Colour JSON Definition")
 
 ### veinColour
-Colour of the veins. [[[1]]](#colourJson "Colour JSON Definition")
+Colour of the veins. [[1]](#colour "Colour JSON Definition")
 
 ### veinWidth
 The width of the veins. Where "1.0" sets a line to have a 1px width, non-anti aliased. Any non whole number creates an nice smooth anti aliased result. 
@@ -93,25 +93,25 @@ Set to "1.0" the pupil will be drawn with a diameter of 1/6th the diameter of th
 When **setIris()** is called the pupil will be drawn twice its current size and then at 30 frames per second it will shrink back to it's normal diameter. The scaling algorithm uses the non-linear circle scaling method. 
 
 ### pupilColour
-Colour of the pupil, I suggest black. [[[1]]](#colourJson "Colour JSON Definition")
+Colour of the pupil, I suggest black. [[1]](#colour "Colour JSON Definition")
 
 ### highlight1/highlight2
 These two parameters define the location, size and appearance of the two highlights.
 
 The setting is a JSON string defining
-**x** horizontal location as a decimal of total width. e.g. 0.5 is half way.
-**y** vertical location as a decimal of total height. e.g. 0.0 is the top.
-**width** width as a decimal of total width. e.g. 0.5 is half the total size.
-**height** height as a decimal of total height. e.g. 1.0 is the same as the full height.
-**colour1** inner colour [[[1]]](#colourJson "Colour JSON Definition")
-**colour2** outer or edge colour [[[1]]](#colourJson "Colour JSON Definition")
+⋅⋅⋅ **x** horizontal location as a decimal of total width. e.g. 0.5 is half way.
+⋅⋅⋅ **y** vertical location as a decimal of total height. e.g. 0.0 is the top.
+⋅⋅⋅ **width** width as a decimal of total width. e.g. 0.5 is half the total size.
+⋅⋅⋅ **height** height as a decimal of total height. e.g. 1.0 is the same as the full height.
+⋅⋅⋅ **colour1** inner colour [[1]](#colour "Colour JSON Definition")
+⋅⋅⋅ **colour2** outer or edge colour [[1]](#colour "Colour JSON Definition")
 
 ```javascript
 {"x":.35, "y":.35, "width":.16, "height":.1, "colour1" : {"red":200, "green":200, "blue":200, "alpha" : 0.4}, "colour2" : {"red":0, "green":0, "blue":0, "alpha" : 0.0}};
 ```
 
 ### irisColours
-An array of colours [[[1]]](#colourJson "Colour JSON Definition") used as a random pool when the **setIris()** method is called. 
+An array of colours [[1]](#colour "Colour JSON Definition") used as a random pool when the **setIris()** method is called. 
 
 ### hideRenderLayers 
 If **false** does not set the CSS *display:none* on the canvas layers that make up the *eyeball*.
@@ -143,23 +143,25 @@ Example uses [jQuery](http://jquery.com)
 ### setIris()
 When called with no parameters sets the iris to a random colour from the **irisColours** array. As this is truly random, there is a possibility that the colour chosen will the colour already in use.
 If **animatePupil** is **true** then the pupil is animated.
+
 NOTE If **animatePupil** is **false** then the iris colour is updated but *not* redrawn, call **doDraw()**.
 
 ## History and related links
+⋅⋅⋅To 
 
-[birth of the html5eyeball project](http://www.jumpstation.co.uk/flog/May2014.html#p220520142234) An overview of where this project came from.
-[eyeball scaling is number one](http://www.jumpstation.co.uk/flog/May2014.html#p230520142146) Discussion about allowing the *eyeball* to be rendered at any size.
-[the importance of eyeball canvas layering](http://www.jumpstation.co.uk/flog/May2014.html#p240520142112) Detailing the canvas layers and layering.
-[non linear circular scaling for a better eyeball](http://www.jumpstation.co.uk/flog/May2014.html#p250520141135) How the circular scaling method came about.
-[Lightning strikes a cord with veins in the html5 eyeball](http://www.jumpstation.co.uk/flog/May2014.html#p250520142238) History of the veins recursive algorithm.
-[tie up your pupil in an iris](http://www.jumpstation.co.uk/flog/May2014.html#p280520142221) Notes on the iris and pupil drawing. Includes the **setPupil()** method that has been superseded by **setIris()**.
-[html5eyeball highlights the highlights](http://www.jumpstation.co.uk/flog/May2014.html#p280520142248) Setting the highlights.
-[Hating jQuery is overrated](http://www.jumpstation.co.uk/flog/May2014.html#p290520142028) Explaining the removal of jQuery as a requirement and the JavaScript object model used.
-[auto offsets make eyeball life easy](http://www.jumpstation.co.uk/flog/Jun2014.html#p010620141159) Code required to *find* the offset of an *eyeball* on the page.
-[html5eyeball settings and methods](http://www.jumpstation.co.uk/flog/Jun2014.html#p010620142040) The basis of the *settings* and *methods* on this page.
+⋅⋅⋅[birth of the html5eyeball project](http://www.jumpstation.co.uk/flog/May2014.html#p220520142234) An overview of where this project came from.
+⋅⋅⋅[eyeball scaling is number one](http://www.jumpstation.co.uk/flog/May2014.html#p230520142146) Discussion about allowing the *eyeball* to be rendered at any size.
+⋅⋅⋅[the importance of eyeball canvas layering](http://www.jumpstation.co.uk/flog/May2014.html#p240520142112) Detailing the canvas layers and layering.
+⋅⋅⋅[non linear circular scaling for a better eyeball](http://www.jumpstation.co.uk/flog/May2014.html#p250520141135) How the circular scaling method came about.
+⋅⋅⋅[Lightning strikes a cord with veins in the html5 eyeball](http://www.jumpstation.co.uk/flog/May2014.html#p250520142238) History of the veins recursive algorithm.
+⋅⋅⋅[tie up your pupil in an iris](http://www.jumpstation.co.uk/flog/May2014.html#p280520142221) Notes on the iris and pupil drawing. Includes the **setPupil()** method that has been superseded by **setIris()**.
+⋅⋅⋅[html5eyeball highlights the highlights](http://www.jumpstation.co.uk/flog/May2014.html#p280520142248) Setting the highlights.
+⋅⋅⋅[Hating jQuery is overrated](http://www.jumpstation.co.uk/flog/May2014.html#p290520142028) Explaining the removal of jQuery as a requirement and the JavaScript object model used.
+⋅⋅⋅[auto offsets make eyeball life easy](http://www.jumpstation.co.uk/flog/Jun2014.html#p010620141159) Code required to *find* the offset of an *eyeball* on the page.
+⋅⋅⋅[html5eyeball settings and methods](http://www.jumpstation.co.uk/flog/Jun2014.html#p010620142040) The basis of the *settings* and *methods* on this page.
 
 ## notes
-<a id="colourJson">
+
 ### Colour
 Defined as a JSON object with "red", "green" and "blue" with values from 0 to 255 and "alpha" which is a value between 0.0 and 1.0 
 
