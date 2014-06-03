@@ -99,12 +99,12 @@ Colour of the pupil, I suggest black. [[1]](#colour "Colour JSON Definition")
 These two parameters define the location, size and appearance of the two highlights.
 
 The setting is a JSON string defining
-⋅⋅⋅ **x** horizontal location as a decimal of total width. e.g. 0.5 is half way.
-⋅⋅⋅ **y** vertical location as a decimal of total height. e.g. 0.0 is the top.
-⋅⋅⋅ **width** width as a decimal of total width. e.g. 0.5 is half the total size.
-⋅⋅⋅ **height** height as a decimal of total height. e.g. 1.0 is the same as the full height.
-⋅⋅⋅ **colour1** inner colour [[1]](#colour "Colour JSON Definition")
-⋅⋅⋅ **colour2** outer or edge colour [[1]](#colour "Colour JSON Definition")
+... **x** horizontal location as a decimal of total width. e.g. 0.5 is half way.
+... **y** vertical location as a decimal of total height. e.g. 0.0 is the top.
+... **width** width as a decimal of total width. e.g. 0.5 is half the total size.
+... **height** height as a decimal of total height. e.g. 1.0 is the same as the full height.
+... **colour1** inner colour [[1]](#colour "Colour JSON Definition")
+... **colour2** outer or edge colour [[1]](#colour "Colour JSON Definition")
 
 ```javascript
 {"x":.35, "y":.35, "width":.16, "height":.1, "colour1" : {"red":200, "green":200, "blue":200, "alpha" : 0.4}, "colour2" : {"red":0, "green":0, "blue":0, "alpha" : 0.0}};
@@ -147,18 +147,17 @@ If **animatePupil** is **true** then the pupil is animated.
 NOTE If **animatePupil** is **false** then the iris colour is updated but *not* redrawn, call **doDraw()**.
 
 ## History and related links
-⋅⋅⋅To 
 
-⋅⋅⋅[birth of the html5eyeball project](http://www.jumpstation.co.uk/flog/May2014.html#p220520142234) An overview of where this project came from.
-⋅⋅⋅[eyeball scaling is number one](http://www.jumpstation.co.uk/flog/May2014.html#p230520142146) Discussion about allowing the *eyeball* to be rendered at any size.
-⋅⋅⋅[the importance of eyeball canvas layering](http://www.jumpstation.co.uk/flog/May2014.html#p240520142112) Detailing the canvas layers and layering.
-⋅⋅⋅[non linear circular scaling for a better eyeball](http://www.jumpstation.co.uk/flog/May2014.html#p250520141135) How the circular scaling method came about.
-⋅⋅⋅[Lightning strikes a cord with veins in the html5 eyeball](http://www.jumpstation.co.uk/flog/May2014.html#p250520142238) History of the veins recursive algorithm.
-⋅⋅⋅[tie up your pupil in an iris](http://www.jumpstation.co.uk/flog/May2014.html#p280520142221) Notes on the iris and pupil drawing. Includes the **setPupil()** method that has been superseded by **setIris()**.
-⋅⋅⋅[html5eyeball highlights the highlights](http://www.jumpstation.co.uk/flog/May2014.html#p280520142248) Setting the highlights.
-⋅⋅⋅[Hating jQuery is overrated](http://www.jumpstation.co.uk/flog/May2014.html#p290520142028) Explaining the removal of jQuery as a requirement and the JavaScript object model used.
-⋅⋅⋅[auto offsets make eyeball life easy](http://www.jumpstation.co.uk/flog/Jun2014.html#p010620141159) Code required to *find* the offset of an *eyeball* on the page.
-⋅⋅⋅[html5eyeball settings and methods](http://www.jumpstation.co.uk/flog/Jun2014.html#p010620142040) The basis of the *settings* and *methods* on this page.
+...[birth of the html5eyeball project](http://www.jumpstation.co.uk/flog/May2014.html#p220520142234) An overview of where this project came from.
+...[eyeball scaling is number one](http://www.jumpstation.co.uk/flog/May2014.html#p230520142146) Discussion about allowing the *eyeball* to be rendered at any size.
+...[the importance of eyeball canvas layering](http://www.jumpstation.co.uk/flog/May2014.html#p240520142112) Detailing the canvas layers and layering.
+...[non linear circular scaling for a better eyeball](http://www.jumpstation.co.uk/flog/May2014.html#p250520141135) How the circular scaling method came about.
+...[Lightning strikes a cord with veins in the html5 eyeball](http://www.jumpstation.co.uk/flog/May2014.html#p250520142238) History of the veins recursive algorithm.
+...[tie up your pupil in an iris](http://www.jumpstation.co.uk/flog/May2014.html#p280520142221) Notes on the iris and pupil drawing. Includes the **setPupil()** method that has been superseded by **setIris()**.
+...[html5eyeball highlights the highlights](http://www.jumpstation.co.uk/flog/May2014.html#p280520142248) Setting the highlights.
+...[Hating jQuery is overrated](http://www.jumpstation.co.uk/flog/May2014.html#p290520142028) Explaining the removal of jQuery as a requirement and the JavaScript object model used.
+...[auto offsets make eyeball life easy](http://www.jumpstation.co.uk/flog/Jun2014.html#p010620141159) Code required to *find* the offset of an *eyeball* on the page.
+...[html5eyeball settings and methods](http://www.jumpstation.co.uk/flog/Jun2014.html#p010620142040) The basis of the *settings* and *methods* on this page.
 
 ## notes
 
