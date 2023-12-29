@@ -67,17 +67,17 @@ More at the <a href="https://github.com/robgithub/html5eyeball">html5 eyeball re
         eb1.doDraw(touch.clientX, touch.clientY);
         eb2.doDraw(touch.clientX, touch.clientY);
     };
-    document.querySelector('#eyeball1').onclick(function (){
+    document.querySelector('#eyeball1').onclick = function (){
         eb1.setIris();
-    });
-    document.querySelector('#eyeball2').onclick(function (){
+    };
+    document.querySelector('#eyeball2').onclick = function (){
         eb2.setIris();
-    });
-    document.querySelector('#nose-button').onclick(function (){
+    };
+    document.querySelector('#nose-button').onclick = function (){
         document.querySelector('#image-mask').toggle();
-    });
+    };
 	var tongueState=0;
-    document.querySelector('#tongue-button').onclick(function (){
+    document.querySelector('#tongue-button').onclick = function (){
 		if (tongueState===0) {
 			tongueState=1;
 			eb1.eyeColour = {"red":255, "green":255, "blue":0};
@@ -115,7 +115,7 @@ More at the <a href="https://github.com/robgithub/html5eyeball">html5 eyeball re
 		eb2.init();
 		eb1.doDraw(); // set eyeball front and center
 		eb2.doDraw();
-    });
+    };
     
     eb1.doDraw(); // set eyeball front and center
     eb2.doDraw();
