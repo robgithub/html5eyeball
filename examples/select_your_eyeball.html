@@ -183,7 +183,7 @@ highlight2 x<input id="settings-h2-size-x" class="size-dec" value="0.64" type="t
 	
 	function convertColour(element) {
 	    let alpha = document.querySelector('#' + element.id + '-alpha').value;
-	    return hexToObjRGBA(element.value);
+	    return hexToObjRGBA(element.value, alpha);
 	}
 	
 	function hexToObjRGBA (hex, alpha = 1) {
