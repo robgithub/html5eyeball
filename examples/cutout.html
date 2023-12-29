@@ -74,7 +74,7 @@ More at the <a href="https://github.com/robgithub/html5eyeball">html5 eyeball re
         eb2.setIris();
     };
     document.querySelector('#nose-button').onclick = function (){
-        document.querySelector('#image-mask').toggle();
+        document.querySelector('#image-mask').hidden = !document.querySelector('#image-mask').hidden;
     };
 	var tongueState=0;
     document.querySelector('#tongue-button').onclick = function (){
