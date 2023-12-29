@@ -3,10 +3,6 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <title>html5eyeball - Select your own eyeball Demo</title>
-  <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="http://bgrins.github.com/spectrum/spectrum.css">
-  <script type='text/javascript' src="http://bgrins.github.com/spectrum/spectrum.js"></script>
-    
   <script type='text/javascript' src='../html5eyeball.js'></script>
   
   <style type='text/css'>
@@ -164,7 +160,7 @@ highlight2 x<input id="settings-h2-size-x" class="size-dec" value="0.64" type="t
 	    return hexToObjRGBA(hex);
 	}
 	
-	function hexToObjRGBA = (hex, alpha = 1) => {
+	function hexToObjRGBA (hex, alpha = 1) => {
         if (hex.startsWith('#')) {parseString = hex.slice(1, 7);}
         const r = parseInt(hex.slice(0, 2), 16);
         const g = parseInt(hex.slice(2, 4), 16);
