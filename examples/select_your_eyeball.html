@@ -3,10 +3,6 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <title>html5eyeball - Select your own eyeball Demo</title>
-  <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="http://bgrins.github.com/spectrum/spectrum.css">
-  <script type='text/javascript' src="http://bgrins.github.com/spectrum/spectrum.js"></script>
-    
   <script type='text/javascript' src='../html5eyeball.js'></script>
   
   <style type='text/css'>
@@ -23,156 +19,7 @@
 	.size-pixels {width:4em;}
 	.size-dec {width:3em;}
   </style>
-  
 
-
-<script type='text/javascript'>//<![CDATA[ 
-// AGHHH JQUERY !!!!
-$(document).ready( function () {
-	var eyeball;
-	// set the colour picker settings
-	$('.colorpicker').spectrum({
-		showInitial: true,
-		preferredFormat: "rgb",
-		showAlpha : true,
-		chooseText : "set"});
-
-	function renderEyeball() {
-		$('#eyeball').remove();
-		$('#eyeball-container').append('<div id="eyeball"></div>');
-		setEyeballSize($('#eyeball'));
-		eyeball = new Eyeball("eyeball");
-		getEyeballSettings(eyeball);
-		eyeball.init();
-	    eyeball.doDraw();
-	}
-
-	function setEyeballSize(element) {
-		var x=0;
-		var y=0;
-		x=$('#settings-size-x').val()+'px';
-		y=$('#settings-size-y').val()+'px';
-		$(element).css('width',x);
-		$(element).css('height',y);
-	}
-
-	function convertColour(rgbastring){
-		var colour = {};
-		var floatRegex = /[^0-9]+([0-9.]+)/g
-		var match = floatRegex.exec(rgbastring);
-		if (match) {
-			colour.red = match[1];
-		}
-		match = floatRegex.exec(rgbastring);
-		if (match) {
-			colour.green = match[1];
-		}
-		match = floatRegex.exec(rgbastring);
-		if (match) {
-			colour.blue = match[1];
-		}
-		match = floatRegex.exec(rgbastring);
-		if (match) {
-			colour.alpha = match[1];
-		} 
-		return colour;
-	}
-
-	function getEyeballSettings(settings) {
-		settings.travel = parseFloat($('#settings-travel').val());
-		settings.hideRenderLayers = $('#settings-hideRenderLayers').prop('checked');
-		settings.hideMarkers = $('#settings-hideMarkers').prop('checked');
-		settings.useCircleScaling = $('#settings-useCircleScaling').prop('checked');
-		settings.numLinesIris = parseInt($('#settings-numLinesIris').val());
-		settings.eyeColour = convertColour($('#settings-colour-eyeColour').val());
-		settings.irisOuterColour = convertColour($('#settings-colour-irisOuterColour').val());
-		settings.irisInternalColour = convertColour($('#settings-colour-irisInternalColour').val());
-		settings.eyeballGradient1 = convertColour($('#settings-colour-eyeballGradient1').val());
-		settings.eyeballGradient2 = convertColour($('#settings-colour-eyeballGradient2').val());
-		settings.eyeballGradient3 = convertColour($('#settings-colour-eyeballGradient3').val());
-		settings.veinColour = convertColour($('#settings-colour-veinColour').val());
-		settings.veinWidth = parseFloat($('#settings-veinWidth').val());
-		settings.veinBranches = parseInt($('#settings-veinBranches').val());
-		settings.pupilScale = parseFloat($('#settings-pupilScale').val());
-		settings.animatePupil = $('#settings-animatePupil').prop('checked');
-		settings.pupilColour = convertColour($('#settings-colour-pupilColour').val());
-		var h1c1 = convertColour($('#settings-h1-colour-colour1').val());
-		var h1c2 = convertColour($('#settings-h1-colour-colour2').val());
-		var h1x = parseFloat($('#settings-h1-size-x').val());
-		var h1y = parseFloat($('#settings-h1-size-y').val());
-		var h1w = parseFloat($('#settings-h1-size-w').val());
-		var h1h = parseFloat($('#settings-h1-size-h').val());
-		settings.highlight1 = { "x":h1x, "y":h1y, "width":h1w, "height":h1h, "colour1": h1c1, "colour2":h1c2};
-		var h2c1 = convertColour($('#settings-h2-colour-colour1').val());
-		var h2c2 = convertColour($('#settings-h2-colour-colour2').val());
-		var h2x = parseFloat($('#settings-h2-size-x').val());
-		var h2y = parseFloat($('#settings-h2-size-y').val());
-		var h2w = parseFloat($('#settings-h2-size-w').val());
-		var h2h = parseFloat($('#settings-h2-size-h').val());
-		settings.highlight2 = { "x":h2x, "y":h2y, "width":h2w, "height":h2h, "colour1": h2c1, "colour2":h2c2};
-
-	}
-
-	function resetEyeballSettings() {
-		$('#settings-size-x').val('300');
-		$('#settings-size-y').val('300');
-		$('#settings-travel').val('1.0');
-		$('#settings-hideRenderLayers').prop('checked','checked');
-		$('#settings-hideMarkers').prop('checked','checked');
-		$('#settings-useCircleScaling').prop('checked','checked');
-		$('#settings-numLinesIris').val('400');
-		$('#settings-colour-eyeColour').spectrum('set','rgb(0,255,0)');
-		$('#settings-colour-irisOuterColour').spectrum('set','rgba(0,255,0,0.0)');
-		$('#settings-colour-irisInternalColour').spectrum('set','rgb(0,0,0)');
-		$('#settings-colour-eyeballGradient1').spectrum('set','rgb(255,255,255)');
-		$('#settings-colour-eyeballGradient2').spectrum('set','rgb(255,238,238)');
-		$('#settings-colour-eyeballGradient3').spectrum('set','rgb(238,221,221)');
-		$('#settings-colour-veinColour').spectrum('set','rgb(255,180,180)');
-		$('#settings-veinWidth').val('0.8');
-		$('#settings-veinBranches').val('5');
-		$('#settings-pupilScale').val('1');
-		$('#settings-animatePupil').prop('checked','checked');
-		$('#settings-colour-pupilColour').spectrum('set','rgb(0,0,0)');
-		$('#settings-h1-colour-colour1').spectrum('set','rgba(200,200,200,0.4)');
-		$('#settings-h1-colour-colour2').spectrum('set','rgba(0,0,0,0.0)');
-		$('#settings-h1-size-x').val('0.35');
-		$('#settings-h1-size-y').val('0.35');
-		$('#settings-h1-size-w').val('0.2');
-		$('#settings-h1-size-h').val('0.16');
-		$('#settings-h2-colour-colour1').spectrum('set','rgba(200,200,200,0.2)');
-		$('#settings-h2-colour-colour2').spectrum('set','rgba(0,0,0,0.3)');
-		$('#settings-h2-size-x').val('0.64');
-		$('#settings-h2-size-y').val('0.74');
-		$('#settings-h2-size-w').val('0.14');
-		$('#settings-h2-size-h').val('0.12');
-	}
-
-    // trap mouse movements and cause updates
-    $(window).mousemove(function (event) {
-		if (eyeball) {
-	        eyeball.doDraw(event.pageX, event.pageY);
-		}
-    });
-    $('#eyeball-container').click(function (){
-		if (eyeball) {
-        	eyeball.setIris();
-			if (!eyeball.animatePupil) {
-				eyeball.doDraw();
-			}
-		}
-    });
-	$('#render-btn').click(function (){
-		renderEyeball();
-	});
-	$('#reset-btn').click(function (){
-		resetEyeballSettings();
-		renderEyeball();
-	});
-
-	renderEyeball();
-});
-//]]>  
-</script>
 </head>
 <body>
 <h1>Select your own eyeball Demo</h1>
@@ -189,36 +36,204 @@ hideRenderLayers <input id="settings-hideRenderLayers" checked="checked" type="c
 hideMarkers <input id="settings-hideMarkers" checked="checked" type="checkbox"><br />
 useCircleScaling <input id="settings-useCircleScaling"  checked="checked" type="checkbox"><br />
 numLinesIris <input id="settings-numLinesIris" class="size-pixels" value="400" type="text"><br />
-eyeColour <input type="text" id="settings-colour-eyeColour" class="colorpicker" value="rgb(0,255,0)"/><br />
-irisOuterColour <input type="text" id="settings-colour-irisOuterColour" class="colorpicker" value="rgba(100,100,100,0.0)"/><br />
-irisInternalColour <input type="text" id="settings-colour-irisInternalColour" class="colorpicker" value="rgb(0,0,0)"/><br />
-eyeballGradient1 <input type="text" id="settings-colour-eyeballGradient1" class="colorpicker" value="rgb(255,255,255)"/><br />
-eyeballGradient2 <input type="text" id="settings-colour-eyeballGradient2" class="colorpicker" value="rgb(255,238,238)"/><br />
-eyeballGradient3 <input type="text" id="settings-colour-eyeballGradient3" class="colorpicker" value="rgb(238,221,221)"/><br />
-veinColour <input type="text" id="settings-colour-veinColour" class="colorpicker" value="rgb(255,180,180)"/><br />
+eyeColour <input type="color" id="settings-colour-eyeColour" class="colorpicker" /><br />
+alpha <input id="settings-colour-eyeColour-alpha" type="range" min="0" max="1" value="1" id="fader" step=".01"><br />
+irisOuterColour <input type="color" id="settings-colour-irisOuterColour" class="colorpicker" /><br />
+alpha <input id="settings-colour-irisOuterColour-alpha" type="range" min="0" max="1" value="0" id="fader" step=".01"><br />
+irisInternalColour <input type="color" id="settings-colour-irisInternalColour" class="colorpicker" /><br />
+alpha <input id="settings-colour-irisInternalColour-alpha" type="range" min="0" max="1" value="1" id="fader" step=".01"><br />
+eyeballGradient1 <input type="color" id="settings-colour-eyeballGradient1" class="colorpicker" /><br />
+alpha <input id="settings-colour-eyeballGradient1-alpha" type="range" min="0" max="1" value="1" id="fader" step=".01"><br />
+eyeballGradient2 <input type="color" id="settings-colour-eyeballGradient2" class="colorpicker" /><br />
+alpha <input id="settings-colour-eyeballGradient2-alpha" type="range" min="0" max="1" value="1" id="fader" step=".01"><br />
+eyeballGradient3 <input type="color" id="settings-colour-eyeballGradient3" class="colorpicker" /><br />
+alpha <input id="settings-colour-eyeballGradient3-alpha" type="range" min="0" max="1" value="1" id="fader" step=".01"><br />
+veinColour <input type="color" id="settings-colour-veinColour" class="colorpicker" /><br />
+alpha <input id="settings-colour-veinColour-alpha" type="range" min="0" max="1" value="1" id="fader" step=".01"><br />
 veinWidth <input id="settings-veinWidth" class="size-dec" value="0.8" type="text"><br />
 veinBranches <input id="settings-veinBranches" value="5" class="size-pixels" type="text"><br />
 pupilScale <input id="settings-pupilScale" type="range" min="0" max="2" value="1" id="fader" step=".01"><br />
 animatePupil <input id="settings-animatePupil" checked="checked" type="checkbox"><br />
-pupilColour <input type="text" id="settings-colour-pupilColour" class="colorpicker" value="rgb(0,0,0)"/><br />
-highlight1 colour1 <input type="text" id="settings-h1-colour-colour1" class="colorpicker" value="rgba(200,200,200,0.4)"/><br />
-highlight1 colour2 <input type="text" id="settings-h1-colour-colour2" class="colorpicker" value="rgba(0,0,0,0.0)"/><br /> 
+pupilColour <input type="color" id="settings-colour-pupilColour" class="colorpicker" /><br />
+alpha <input id="settings-colour-pupilColour-alpha" type="range" min="0" max="1" value="1" id="fader" step=".01"><br />
+highlight1 colour1 <input type="color" id="settings-h1-colour-colour1" class="colorpicker" /><br />
+alpha <input id="settings-h1-colour-colour1-alpha" type="range" min="0" max="1" value="0.4" id="fader" step=".01"><br />
+highlight1 colour2 <input type="color" id="settings-h1-colour-colour2" class="colorpicker" /><br /> 
+alpha <input id="settings-h1-colour-colour2-alpha" type="range" min="0" max="1" value="1" id="fader" step=".01"><br />
 highlight1 x<input id="settings-h1-size-x" class="size-dec" value="0.35" type="text">, y<input id="settings-h1-size-y" class="size-dec" value="0.35" type="text">, w<input id="settings-h1-size-w" class="size-dec" value="0.2" type="text">, h<input id="settings-h1-size-h" class="size-dec" value="0.16" type="text"><br />
-highlight2 colour1 <input type="text" id="settings-h2-colour-colour1" class="colorpicker" value="rgba(200,200,200,0.2)"/><br />
-highlight2 colour2 <input type="text" id="settings-h2-colour-colour2" class="colorpicker" value="rgba(0,0,0,0.3)"/><br /> 
+highlight2 colour1 <input type="color" id="settings-h2-colour-colour1" class="colorpicker" /><br />
+alpha <input id="settings-h2-colour-colour1-alpha" type="range" min="0" max="1" value="0.2" id="fader" step=".01"><br />
+highlight2 colour2 <input type="color" id="settings-h2-colour-colour2" class="colorpicker" /><br /> 
+alpha <input id="settings-h2-colour-colour2-alpha" type="range" min="0" max="1" value="0.3" id="fader" step=".01"><br />
 highlight2 x<input id="settings-h2-size-x" class="size-dec" value="0.64" type="text">, y<input id="settings-h2-size-y" class="size-dec" value="0.74" type="text">, w<input id="settings-h2-size-w" class="size-dec" value="0.14" type="text">, h<input id="settings-h2-size-h" class="size-dec" value="0.12" type="text"><br />
 <input type="button" value="Reset" id="reset-btn">
 <input type="button" value="Render" id="render-btn">
 	<div class="instructions">
 		<h2>Instructions</h2>
 		<p>Move the mouse and let the eyeball track you.</p>
-		<p>Change the parameters and click [Render] to see the results.</p>
-		<p>Click [Reset] to return to sane defaults.</p>
-		<p>WARNING! Setting the veinBranches too high will slow your computer.</p>
+		<p>Change the parameters and click <b>[Render]</b> to see the results.</p>
+		<p>Click <b>[Reset]</b> to return to sane defaults.</p>
+		<p>WARNING! Setting the veinBranches too high <i>will</i> slow your computer.</p>
 		<br/>
 		<p><a href="https://github.com/robgithub/html5eyeball">html5eyeball</a> Is free for any use and is under the <a href="http://opensource.org/licenses/MIT">MIT licence</a>.</p>
-		<p>This demo uses the excellent <a href="http://bgrins.github.io/spectrum/">Spectrum</a> colour picker</p>
 	</div>
+	<script type='text/javascript'>
+	var eyeball;
+
+	function renderEyeball() {
+		document.querySelector('#eyeball').remove();
+		let el = document.createElement('div');
+		el.id = 'eyeball';
+		document.querySelector('#eyeball-container').append(el);
+		setEyeballSize(document.querySelector('#eyeball'));
+		eyeball = new Eyeball("eyeball");
+		getEyeballSettings(eyeball);
+		eyeball.init();
+	    eyeball.doDraw();
+	}
+
+	function setEyeballSize(element) {
+		var x=0;
+		var y=0;
+		x=document.querySelector('#settings-size-x').value + 'px';
+		y=document.querySelector('#settings-size-y').value + 'px';
+		element.style.width = x;
+		element.style.height = y;
+	}
+
+	function getEyeballSettings(settings) {
+		settings.travel = parseFloat(document.querySelector('#settings-travel').value);
+		settings.hideRenderLayers = document.querySelector('#settings-hideRenderLayers').checked;
+		settings.hideMarkers = document.querySelector('#settings-hideMarkers').checked;
+		settings.useCircleScaling = document.querySelector('#settings-useCircleScaling').checked;
+		settings.numLinesIris = parseInt(document.querySelector('#settings-numLinesIris').value);
+		settings.eyeColour = convertColour(document.querySelector('#settings-colour-eyeColour'));
+		settings.irisOuterColour = convertColour(document.querySelector('#settings-colour-irisOuterColour'));
+		settings.irisInternalColour = convertColour(document.querySelector('#settings-colour-irisInternalColour'));
+		settings.eyeballGradient1 = convertColour(document.querySelector('#settings-colour-eyeballGradient1'));
+		settings.eyeballGradient2 = convertColour(document.querySelector('#settings-colour-eyeballGradient2'));
+		settings.eyeballGradient3 = convertColour(document.querySelector('#settings-colour-eyeballGradient3'));
+		settings.veinColour = convertColour(document.querySelector('#settings-colour-veinColour'));
+		settings.veinWidth = parseFloat(document.querySelector('#settings-veinWidth').value);
+		settings.veinBranches = parseInt(document.querySelector('#settings-veinBranches').value);
+		settings.pupilScale = parseFloat(document.querySelector('#settings-pupilScale').value);
+		settings.animatePupil = document.querySelector('#settings-animatePupil').checked;
+		settings.pupilColour = convertColour(document.querySelector('#settings-colour-pupilColour'));
+		var h1c1 = convertColour(document.querySelector('#settings-h1-colour-colour1'));
+		var h1c2 = convertColour(document.querySelector('#settings-h1-colour-colour2'));
+		var h1x = parseFloat(document.querySelector('#settings-h1-size-x').value);
+		var h1y = parseFloat(document.querySelector('#settings-h1-size-y').value);
+		var h1w = parseFloat(document.querySelector('#settings-h1-size-w').value);
+		var h1h = parseFloat(document.querySelector('#settings-h1-size-h').value);
+		settings.highlight1 = { "x":h1x, "y":h1y, "width":h1w, "height":h1h, "colour1": h1c1, "colour2":h1c2};
+		var h2c1 = convertColour(document.querySelector('#settings-h2-colour-colour1'));
+		var h2c2 = convertColour(document.querySelector('#settings-h2-colour-colour2'));
+		var h2x = parseFloat(document.querySelector('#settings-h2-size-x').value);
+		var h2y = parseFloat(document.querySelector('#settings-h2-size-y').value);
+		var h2w = parseFloat(document.querySelector('#settings-h2-size-w').value);
+		var h2h = parseFloat(document.querySelector('#settings-h2-size-h').value);
+		settings.highlight2 = { "x":h2x, "y":h2y, "width":h2w, "height":h2h, "colour1": h2c1, "colour2":h2c2};
+	}
+
+  function resetEyeballSettings() {
+		document.querySelector('#settings-size-x').value = '300';
+		document.querySelector('#settings-size-y').value = '300';
+		document.querySelector('#settings-travel').value = '1.0';
+		document.querySelector('#settings-hideRenderLayers').checked = true;
+		document.querySelector('#settings-hideMarkers').checked = true;
+		document.querySelector('#settings-useCircleScaling').checked = true;
+		document.querySelector('#settings-numLinesIris').value = '400';
+		document.querySelector('#settings-colour-eyeColour').value = '#00ff00';
+		document.querySelector('#settings-colour-eyeColour-alpha').value = '1';
+		document.querySelector('#settings-colour-irisOuterColour').value = '#00ff00';
+		document.querySelector('#settings-colour-irisOuterColour-alpha').value = '0';
+		document.querySelector('#settings-colour-irisInternalColour').value = '#000000';
+		document.querySelector('#settings-colour-irisInternalColour-alpha').value = '1';
+		document.querySelector('#settings-colour-eyeballGradient1').value = '#ffffff';
+		document.querySelector('#settings-colour-eyeballGradient1-alpha').value = '1';
+		document.querySelector('#settings-colour-eyeballGradient2').value = '#ffeeee';
+		document.querySelector('#settings-colour-eyeballGradient2-alpha').value = '1';
+		document.querySelector('#settings-colour-eyeballGradient3').value = '#ffcccc';
+		document.querySelector('#settings-colour-eyeballGradient3-alpha').value = '1';
+		document.querySelector('#settings-colour-veinColour').value = '#ffaaaa';
+		document.querySelector('#settings-colour-veinColour-alpha').value = '1';
+		document.querySelector('#settings-veinWidth').value = '0.8';
+		document.querySelector('#settings-veinBranches').value = '5';
+		document.querySelector('#settings-pupilScale').value = '1';
+		document.querySelector('#settings-animatePupil').checked = true;
+		document.querySelector('#settings-colour-pupilColour').value = '#000000';
+		document.querySelector('#settings-colour-pupilColour-alpha').value = '1';
+		document.querySelector('#settings-h1-colour-colour1').value = '#aaaaaa';
+		document.querySelector('#settings-h1-colour-colour1-alpha').value = '0.4';
+		document.querySelector('#settings-h1-colour-colour2').value = '#000000';
+		document.querySelector('#settings-h1-colour-colour2-alpha').value = '1';
+		document.querySelector('#settings-h1-size-x').value = '0.35';
+		document.querySelector('#settings-h1-size-y').value = '0.35';
+		document.querySelector('#settings-h1-size-w').value = '0.2'
+		document.querySelector('#settings-h1-size-h').value = '0.16';
+		document.querySelector('#settings-h2-colour-colour1').value = '#ffaaaa';
+		document.querySelector('#settings-h2-colour-colour1-alpha').value = '0.2';
+		document.querySelector('#settings-h2-colour-colour2').value = '#000000';
+		document.querySelector('#settings-h2-colour-colour2-alpha').value = '0.3';
+		document.querySelector('#settings-h2-size-x').value = '0.64';
+		document.querySelector('#settings-h2-size-y').value = '0.74';
+		document.querySelector('#settings-h2-size-w').value = '0.14';
+		document.querySelector('#settings-h2-size-h').value = '0.12';
+	}
+	
+	function convertColour(element) {
+	    let alpha = document.querySelector('#' + element.id + '-alpha').value;
+	    return hexToObjRGBA(element.value, alpha);
+	}
+	
+	function hexToObjRGBA (hex, alpha = 1) {
+        if (hex.startsWith('#')) {hex = hex.slice(1, 7);}
+        const r = parseInt(hex.slice(0, 2), 16);
+        const g = parseInt(hex.slice(2, 4), 16);
+        const b = parseInt(hex.slice(4, 6), 16);
+        if (isNaN(r) || isNaN(g) || isNaN(b)) {return null;}
+        return {
+            "red":r, "green":g, "blue":b, "alpha":alpha
+        }
+    };
+
+	
+    // trap mouse movements and cause updates
+    window.onmousemove = (event) => {
+        event.preventDefault();
+        if (eyeball) {
+            eyeball.doDraw(event.pageX, event.pageY);
+        }
+    };
+    window.ontouchmove = (event) => {
+        event.preventDefault();
+        var touch = event.touches[0];
+        if (eyeball) {
+            eyeball.doDraw(touch.clientX, touch.clientY);
+        }
+    };
+
+    document.querySelector('#eyeball-container').onclick = function (){
+		if (eyeball) {
+        	eyeball.setIris();
+			if (!eyeball.animatePupil) {
+				eyeball.doDraw();
+			}
+		}
+    };
+    document.querySelector('#render-btn').onclick = function (){
+		renderEyeball();
+	};
+    document.querySelector('#reset-btn').onclick = function (){
+		resetEyeballSettings();
+		renderEyeball();
+	};
+
+    resetEyeballSettings();
+	renderEyeball();	
+	
+		
+	</script>
 </body>
   
 </html>

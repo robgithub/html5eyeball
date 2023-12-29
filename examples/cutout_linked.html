@@ -3,7 +3,6 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <title>html5eyeball - Cutout linked Demo</title>
-  <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
   <script type='text/javascript' src='../html5eyeball.js'></script>
   
   <style type='text/css'>
@@ -23,12 +22,33 @@
 	#nose-button { left:153px; top:207px; z-index:3; position: absolute; width:100px; height:90px; }
 	#tongue-button { left:145px; top:349px; z-index:3; position: absolute; width:100px; height:115px; }
   </style>
-  
 
+</head>
+<body>
+<h1>Cut-out linked Demo</h1>
+<br />
+More at the <a href="https://github.com/robgithub/html5eyeball">html5 eyeball repository</a> 
+	<div id="demo-container">
+		<div id="eyeball-container">
+		    <div id="eyeball1"></div>
+		    <div id="eyeball2"></div>
+		</div>
+		<img id="image-bg" src="images/cut-out%201%20400x551_clean.jpg" alt="My face as a cut out mask for the eyeballs" >
+		<img id="image-mask" src="images/cut-out%201%20400x551_eyemask_tight.png" alt="eye slits making use of transparent png">
+		<div id="nose-button"></div>
+		<div id="tongue-button"></div>
+	</div>
+	<div class="instructions">
+		<h2>Instructions</h2>
+		<p>Move the mouse and let the eyeballs track you.</p>
+		<p>Click an eye to change the iris colour randomly.</p>
+		<p>Click my nose to pop eyeballs in and out.</p>
+		<p>Click my tongue to toggle between bizzare mode eyeballs.</p>
+		<br/>
+		<p><a href="https://github.com/robgithub/html5eyeball">html5eyeball</a> Is free for any use and is under the <a href="http://opensource.org/licenses/MIT">MIT licence</a>.</p>
+	</div>
+	<script type='text/javascript'>
 
-<script type='text/javascript'>//<![CDATA[ 
-// AGHHH JQUERY !!!!
-$(document).ready( function () {
     var eb1 = new Eyeball("eyeball1");
     eb1.travel = 0.5;
     eb1.init();
@@ -42,21 +62,28 @@ $(document).ready( function () {
 	var linkOffsetY = 4;
 
     // trap mouse movements and cause updates
-    $(window).mousemove(function (event) {
+    window.onmousemove = (event) => {
+        event.preventDefault();
         eb1.doDraw(event.pageX - linkOffsetX, event.pageY);
         eb2.doDraw(event.pageX + linkOffsetX, event.pageY + linkOffsetY);
-    });
-    $('#eyeball1').click(function (){
+    };
+    window.ontouchmove = (event) => {
+        event.preventDefault();
+        var touch = event.touches[0];
+        eb1.doDraw(touch.clientX - linkOffsetX, touch.clientY);
+        eb2.doDraw(touch.clientX + linkOffsetX, touch.clientY + linkOffsetY);
+    };
+    document.querySelector('#eyeball1').onclick = function (){
         eb1.setIris();
-    });
-    $('#eyeball2').click(function (){
+    };
+    document.querySelector('#eyeball2').onclick = function (){
         eb2.setIris();
-    });
-    $('#nose-button').click(function (){
-        $('#image-mask').toggle();
-    });
+    };
+    document.querySelector('#nose-button').onclick = function (){
+        document.querySelector('#image-mask').hidden = !document.querySelector('#image-mask').hidden;
+    };
 	var tongueState=0;
-    $('#tongue-button').click(function (){
+    document.querySelector('#tongue-button').onclick = function (){
 		if (tongueState===0) {
 			tongueState=1;
 			eb1.eyeColour = {"red":255, "green":255, "blue":0};
@@ -94,38 +121,13 @@ $(document).ready( function () {
 		eb2.init();
 		eb1.doDraw(); // set eyeball front and center
 		eb2.doDraw();
-    });
+    };
+    
     eb1.doDraw(); // set eyeball front and center
     eb2.doDraw();
-});
-//]]>  
 </script>
-</head>
-<body>
-<h1>Cut-out linked Demo</h1>
-<br />
-More at the <a href="https://github.com/robgithub/html5eyeball">html5 eyeball repository</a> 
-	<div id="demo-container">
-		<div id="eyeball-container">
-		    <div id="eyeball1"></div>
-		    <div id="eyeball2"></div>
-		</div>
-		<img id="image-bg" src="images/cut-out%201%20400x551_clean.jpg" alt="My face as a cut out mask for the eyeballs" >
-		<img id="image-mask" src="images/cut-out%201%20400x551_eyemask_tight.png" alt="eye slits making use of transparent png">
-		<div id="nose-button"></div>
-		<div id="tongue-button"></div>
-	</div>
-	<div class="instructions">
-		<h2>Instructions</h2>
-		<p>Move the mouse and let the eyeballs track you.</p>
-		<p>Click an eye to change the iris colour randomly.</p>
-		<p>Click my nose to pop eyeballs in and out.</p>
-		<p>Click my tongue to toggle between bizzare mode eyeballs.</p>
-		<br/>
-		<p><a href="https://github.com/robgithub/html5eyeball">html5eyeball</a> Is free for any use and is under the <a href="http://opensource.org/licenses/MIT">MIT licence</a>.</p>
-	</div>
+
 </body>
   
 </html>
-
 

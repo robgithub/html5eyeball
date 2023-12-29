@@ -13,7 +13,7 @@ There are over twenty user settings allowing ultra-realistic renderings to bizar
 
 Sensible defaults means nothing other than the div to render to is required.
 
-Framework agnostic. Although jQuery is used throughout the examples is not required and just makes wiring up mouse actions easy.
+Framework agnostic: Uses vanilia javascript. 
 
 Examples
 
@@ -136,8 +136,6 @@ $(window).mousemove(function (event) {
     eyeball.doDraw(event.pageX, event.pageY);
 }); 
 ```
-Example uses [jQuery](http://jquery.com)
-
 ### setIris()
 When called with no parameters sets the iris to a random colour from the **irisColours** array. As this is truly random, there is a possibility that the colour chosen will the colour already in use.
 If **animatePupil** is **true** then the pupil is animated.
