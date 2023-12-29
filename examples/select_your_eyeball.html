@@ -39,7 +39,7 @@ numLinesIris <input id="settings-numLinesIris" class="size-pixels" value="400" t
 eyeColour <input type="color" id="settings-colour-eyeColour" class="colorpicker" /><br />
 alpha <input id="settings-colour-eyeColour-alpha" type="range" min="0" max="1" value="1" id="fader" step=".01"><br />
 irisOuterColour <input type="color" id="settings-colour-irisOuterColour" class="colorpicker" /><br />
-alpha <input id="settings-colour-irisOuterColour-alpha" type="range" min="0" max="1" value="1" id="fader" step=".01"><br />
+alpha <input id="settings-colour-irisOuterColour-alpha" type="range" min="0" max="1" value="0" id="fader" step=".01"><br />
 irisInternalColour <input type="color" id="settings-colour-irisInternalColour" class="colorpicker" /><br />
 alpha <input id="settings-colour-irisInternalColour-alpha" type="range" min="0" max="1" value="1" id="fader" step=".01"><br />
 eyeballGradient1 <input type="color" id="settings-colour-eyeballGradient1" class="colorpicker" /><br />
@@ -57,14 +57,14 @@ animatePupil <input id="settings-animatePupil" checked="checked" type="checkbox"
 pupilColour <input type="color" id="settings-colour-pupilColour" class="colorpicker" /><br />
 alpha <input id="settings-colour-pupilColour-alpha" type="range" min="0" max="1" value="1" id="fader" step=".01"><br />
 highlight1 colour1 <input type="color" id="settings-h1-colour-colour1" class="colorpicker" /><br />
-alpha <input id="settings-h1-colour-colour1-alpha" type="range" min="0" max="1" value="1" id="fader" step=".01"><br />
+alpha <input id="settings-h1-colour-colour1-alpha" type="range" min="0" max="1" value="0.4" id="fader" step=".01"><br />
 highlight1 colour2 <input type="color" id="settings-h1-colour-colour2" class="colorpicker" /><br /> 
 alpha <input id="settings-h1-colour-colour2-alpha" type="range" min="0" max="1" value="1" id="fader" step=".01"><br />
 highlight1 x<input id="settings-h1-size-x" class="size-dec" value="0.35" type="text">, y<input id="settings-h1-size-y" class="size-dec" value="0.35" type="text">, w<input id="settings-h1-size-w" class="size-dec" value="0.2" type="text">, h<input id="settings-h1-size-h" class="size-dec" value="0.16" type="text"><br />
 highlight2 colour1 <input type="color" id="settings-h2-colour-colour1" class="colorpicker" /><br />
-alpha <input id="settings-h2-colour-colour1-alpha" type="range" min="0" max="1" value="1" id="fader" step=".01"><br />
+alpha <input id="settings-h2-colour-colour1-alpha" type="range" min="0" max="1" value="0.2" id="fader" step=".01"><br />
 highlight2 colour2 <input type="color" id="settings-h2-colour-colour2" class="colorpicker" /><br /> 
-alpha <input id="settings-h2-colour-colour2-alpha" type="range" min="0" max="1" value="1" id="fader" step=".01"><br />
+alpha <input id="settings-h2-colour-colour2-alpha" type="range" min="0" max="1" value="0.3" id="fader" step=".01"><br />
 highlight2 x<input id="settings-h2-size-x" class="size-dec" value="0.64" type="text">, y<input id="settings-h2-size-y" class="size-dec" value="0.74" type="text">, w<input id="settings-h2-size-w" class="size-dec" value="0.14" type="text">, h<input id="settings-h2-size-h" class="size-dec" value="0.12" type="text"><br />
 <input type="button" value="Reset" id="reset-btn">
 <input type="button" value="Render" id="render-btn">
@@ -144,37 +144,37 @@ highlight2 x<input id="settings-h2-size-x" class="size-dec" value="0.64" type="t
 		document.querySelector('#settings-useCircleScaling').checked = true;
 		document.querySelector('#settings-numLinesIris').value = '400';
 		document.querySelector('#settings-colour-eyeColour').value = '#00ff00';
-		document.querySelector('#settings-colour-eyeColour-alpha').value = '0';
+		document.querySelector('#settings-colour-eyeColour-alpha').value = '1';
 		document.querySelector('#settings-colour-irisOuterColour').value = '#00ff00';
 		document.querySelector('#settings-colour-irisOuterColour-alpha').value = '0';
 		document.querySelector('#settings-colour-irisInternalColour').value = '#000000';
-		document.querySelector('#settings-colour-irisInternalColour-alpha').value = '0';
+		document.querySelector('#settings-colour-irisInternalColour-alpha').value = '1';
 		document.querySelector('#settings-colour-eyeballGradient1').value = '#ffffff';
-		document.querySelector('#settings-colour-eyeballGradient1-alpha').value = '0';
+		document.querySelector('#settings-colour-eyeballGradient1-alpha').value = '1';
 		document.querySelector('#settings-colour-eyeballGradient2').value = '#ffeeee';
-		document.querySelector('#settings-colour-eyeballGradient2-alpha').value = '0';
+		document.querySelector('#settings-colour-eyeballGradient2-alpha').value = '1';
 		document.querySelector('#settings-colour-eyeballGradient3').value = '#ffcccc';
-		document.querySelector('#settings-colour-eyeballGradient3-alpha').value = '0';
+		document.querySelector('#settings-colour-eyeballGradient3-alpha').value = '1';
 		document.querySelector('#settings-colour-veinColour').value = '#ffaaaa';
-		document.querySelector('#settings-colour-veinColour-alpha').value = '0';
+		document.querySelector('#settings-colour-veinColour-alpha').value = '1';
 		document.querySelector('#settings-veinWidth').value = '0.8';
 		document.querySelector('#settings-veinBranches').value = '5';
 		document.querySelector('#settings-pupilScale').value = '1';
 		document.querySelector('#settings-animatePupil').checked = true;
 		document.querySelector('#settings-colour-pupilColour').value = '#000000';
-		document.querySelector('#settings-colour-pupilColour-alpha').value = '0';
+		document.querySelector('#settings-colour-pupilColour-alpha').value = '1';
 		document.querySelector('#settings-h1-colour-colour1').value = '#aaaaaa';
-		document.querySelector('#settings-h1-colour-colour1-alpha').value = '0';
+		document.querySelector('#settings-h1-colour-colour1-alpha').value = '0.4';
 		document.querySelector('#settings-h1-colour-colour2').value = '#000000';
-		document.querySelector('#settings-h1-colour-colour2-alpha').value = '0';
+		document.querySelector('#settings-h1-colour-colour2-alpha').value = '1';
 		document.querySelector('#settings-h1-size-x').value = '0.35';
 		document.querySelector('#settings-h1-size-y').value = '0.35';
 		document.querySelector('#settings-h1-size-w').value = '0.2'
 		document.querySelector('#settings-h1-size-h').value = '0.16';
 		document.querySelector('#settings-h2-colour-colour1').value = '#ffaaaa';
-		document.querySelector('#settings-h2-colour-colour1-alpha').value = '0';
+		document.querySelector('#settings-h2-colour-colour1-alpha').value = '0.2';
 		document.querySelector('#settings-h2-colour-colour2').value = '#000000';
-		document.querySelector('#settings-h2-colour-colour2-alpha').value = '0';
+		document.querySelector('#settings-h2-colour-colour2-alpha').value = '0.3';
 		document.querySelector('#settings-h2-size-x').value = '0.64';
 		document.querySelector('#settings-h2-size-y').value = '0.74';
 		document.querySelector('#settings-h2-size-w').value = '0.14';
