@@ -95,6 +95,7 @@
     };
     window.ontouchmove = (event) => {
         event.preventDefault();
+        var touch = event.touches[0];
 		for (var i=0;i<eyeballs.length;i++) {
 	        eyeballs[i].doDraw(touch.clientX, touch.clientY);
 		}    
