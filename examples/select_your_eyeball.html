@@ -163,7 +163,7 @@ highlight2 x<input id="settings-h2-size-x" class="size-dec" value="0.64" type="t
 	}
 	
 	function hexToObjRGBA (hex, alpha = 1) {
-        if (hex.startsWith('#')) {parseString = hex.slice(1, 7);}
+        if (hex.startsWith('#')) {hex = hex.slice(1, 7);}
         const r = parseInt(hex.slice(0, 2), 16);
         const g = parseInt(hex.slice(2, 4), 16);
         const b = parseInt(hex.slice(4, 6), 16);
