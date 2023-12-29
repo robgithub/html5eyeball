@@ -59,12 +59,11 @@ highlight2 x<input id="settings-h2-size-x" class="size-dec" value="0.64" type="t
 	<div class="instructions">
 		<h2>Instructions</h2>
 		<p>Move the mouse and let the eyeball track you.</p>
-		<p>Change the parameters and click [Render] to see the results.</p>
-		<p>Click [Reset] to return to sane defaults.</p>
-		<p>WARNING! Setting the veinBranches too high will slow your computer.</p>
+		<p>Change the parameters and click <b>[Render]</b> to see the results.</p>
+		<p>Click <b>[Reset]</b> to return to sane defaults.</p>
+		<p>WARNING! Setting the veinBranches too high <i>will</i> slow your computer.</p>
 		<br/>
 		<p><a href="https://github.com/robgithub/html5eyeball">html5eyeball</a> Is free for any use and is under the <a href="http://opensource.org/licenses/MIT">MIT licence</a>.</p>
-		<p>This demo uses the excellent <a href="http://bgrins.github.io/spectrum/">Spectrum</a> colour picker</p>
 	</div>
 	<script type='text/javascript'>
 	var eyeball;
@@ -87,7 +86,7 @@ highlight2 x<input id="settings-h2-size-x" class="size-dec" value="0.64" type="t
 		x=document.querySelector('#settings-size-x').value + 'px';
 		y=document.querySelector('#settings-size-y').value + 'px';
 		element.style.width = x;
-		element.style.width = y
+		element.style.height = y;
 	}
 
 	function getEyeballSettings(settings) {
