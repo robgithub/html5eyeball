@@ -71,7 +71,9 @@ highlight2 x<input id="settings-h2-size-x" class="size-dec" value="0.64" type="t
 
 	function renderEyeball() {
 		document.querySelector('#eyeball').remove();
-		document.querySelector('#eyeball-container').append('<div id="eyeball"></div>');
+		let el = document.createElement('div');
+		el.id = 'eyeball';
+		document.querySelector('#eyeball-container').append(el);
 		setEyeballSize(document.querySelector('#eyeball'));
 		eyeball = new Eyeball("eyeball");
 		getEyeballSettings(eyeball);
